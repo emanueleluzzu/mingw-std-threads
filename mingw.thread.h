@@ -32,6 +32,10 @@ public:
     public:
         id(DWORD aId=0):mId(aId){}
         bool operator==(const id& other) const {return mId == other.mId;}
+        friend std::ostream& operator<<(std::ostream& _os, const thread::id& _threadId){
+          _os << _threadId.mId;
+          return _os;
+        }
     };
 protected:
     HANDLE mHandle;
